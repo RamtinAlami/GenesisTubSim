@@ -1,9 +1,8 @@
 #include <math.h>
+#include <bsd/stdlib.h>
+
 #include "location.h"
 #include "simulator.h"
-
-#include <bsd/stdlib.h>
-#include <iostream>
 
 #define CLOSE_ENOUGH 0.05 // The precision
 
