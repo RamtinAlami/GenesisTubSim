@@ -1,8 +1,6 @@
 #ifndef GENE_H
 #define GENE_H
 
-#include "gene.h"
-
 #define SIZE_OF_DNA 23
 
 class Gene
