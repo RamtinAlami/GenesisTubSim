@@ -7,7 +7,7 @@
 
 //general simulation parameters
 #define SIM_HOURS 5000
-#define STARING_NUM_ORGANISM 100
+#define STARING_NUM_ORGANISM 20000
 
 #define MUTATION_PROB 0.01
 

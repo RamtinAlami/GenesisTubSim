@@ -6,6 +6,7 @@
 #include "gene.h"
 #include "brain.h"
 #include <vector>
+#include <SFML/Graphics.hpp>
 
 class Organism
 {
@@ -18,11 +19,13 @@ public:
     void progress();
     bool is_alive();
     void move();
+    void moveShape();
 
     Gene gene;
     int food_level;
     Brain controller_brian;
     Location location;
+    sf::RectangleShape shape;
 
     States state;
 };

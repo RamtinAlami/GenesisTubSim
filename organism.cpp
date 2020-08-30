@@ -11,19 +11,23 @@ std::vector<Organism> organisms(STARING_NUM_ORGANISM);
 
 Organism::Organism()
 {
+    shape = sf::RectangleShape(sf::Vector2f(2, 2));
+    shape.setFillColor(sf::Color(16, 74, 4));
     gene = Gene();
     state = ALIVE;
-    food_level = arc4random_uniform(133);
+    food_level = arc4random_uniform(100);
     location = Location();
     controller_brian = Brain(gene);
 }
 
 Organism::Organism(Organism parent1, Organism parent2)
 {
+    shape = sf::RectangleShape(sf::Vector2f(8, 8));
+    shape.setFillColor(sf::Color(16, 74, 4));
     state = ALIVE;
     gene = Gene(parent1.gene, parent2.gene);
     gene.mutate(); // Mutate the gene after creation
-    food_level = arc4random_uniform(133);
+    food_level = arc4random_uniform(100);
     location = Location(parent1.location.getX(), parent1.location.getY()); // Location next to parent
     controller_brian = Brain(gene);
 }
@@ -58,7 +62,7 @@ void Organism::progress()
     food_level--;
     if (food_level < 30 && try_event(0.2))
     {
-        state = DEAD;
+        state = ALIVE;
     }
 }
 
@@ -79,4 +83,9 @@ void Organism::move()
 bool Organism::is_alive()
 {
     return state != DEAD;
+}
+
+void Organism::moveShape()
+{
+    shape.setPosition(location.getX(), location.getY());
 }
