@@ -5,7 +5,6 @@
 
 class Gene
 {
-
 public:
     Gene();
     Gene(Gene parent1_gene, Gene parent2_gene);

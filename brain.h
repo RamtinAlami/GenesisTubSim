@@ -9,6 +9,7 @@ private:
     Gene gene;
 
 public:
+    Brain();
     Brain(Gene organism_gene);
     double *next_move(double *observations);
 };

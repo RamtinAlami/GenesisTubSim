@@ -18,6 +18,7 @@ public:
     double get_distance(Location other_location); // for moving towards
     double get_angle(Location other_location);    // for seeing later
     bool move_toward(Location destination, double amount);
+    bool move_toward(double dest_x, double dest_y, double amount);
     bool at_location(Location destination);
 };
 

@@ -43,6 +43,29 @@ bool Location::move_toward(Location destination, double amount)
     }
 }
 
+bool Location::move_toward(double dest_x, double dest_y, double amount)
+{
+    // going towards point x
+    double dx = dest_x - x;
+    double dy = dest_y - y;
+    double theta = atan2(dy, dx);
+
+    double distance = sqrt((dx * dx) + (dy * dy));
+
+    if (distance < amount) // checks so we don't overshoot
+    {
+        x = dest_x;
+        y = dest_y;
+        return true;
+    }
+    else
+    {
+        x = x + (amount * cos(theta));
+        y = y + (amount * sin(theta));
+        return false;
+    }
+}
+
 double Location::get_distance(Location other_location)
 {
     // Return distance between two points

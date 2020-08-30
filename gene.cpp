@@ -15,7 +15,7 @@ Gene::Gene()
 }
 
 Gene::Gene(Gene parent1_gene, Gene parent2_gene)
-// Init gene with random values
+// Init gene with two parent genes
 {
     for (int i = 0; i < SIZE_OF_DNA; i++)
     {

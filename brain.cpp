@@ -5,6 +5,11 @@
 #include "brain.h"
 #include "simulator.h"
 
+Brain::Brain()
+{
+    gene = Gene();
+}
+
 Brain::Brain(Gene organism_gene)
 // init the brain
 {
