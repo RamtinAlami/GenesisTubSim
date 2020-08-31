@@ -26,7 +26,7 @@ bool try_event(double probability)
 void sim_main()
 {
 
-    sf::RenderWindow window(sf::VideoMode(1000, 1000), "Sim!");
+    sf::RenderWindow window(sf::VideoMode(X_LIMIT, Y_LIMIT), "Sim!");
     int time = 0;
     int alive_organism;
     while (window.isOpen())
@@ -39,7 +39,8 @@ void sim_main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        // move people.
+
+        // Set here to make sure indeces don't get messed up
         int num_organism = organisms.size();
 
         // usleep(8000);
@@ -61,7 +62,6 @@ void sim_main()
                 if (foods[p].is_avaliable())
                 {
                     window.draw(foods[p].shape);
-                    std::cout << foods[p].location.getX() << " " << foods[p].location.getY() << "\n";
                 }
             }
         }
@@ -73,12 +73,20 @@ void sim_main()
 
             if (organisms[p].is_alive())
             {
+                alive_organism++;
                 organisms[p].move();
-                // organisms[p].progress();
+                organisms[p].progress();
 
-                // for (int p2 = p_limit; p2 < num_organism; p2++)
+                for (int p2 = p_limit; p2 < num_organism; p2++)
+                {
+                    organisms[p].try_mate(&organisms[p2]);
+                }
+                // for (int p3 = 0; p3 < NUMBER_OF_FOOD; p3++)
                 // {
-                //     organisms[p].try_mate(organisms[p2]);
+                //     if (foods[p3].is_avaliable())
+                //     {
+                //         organisms[p].try_consume(&foods[p3]);
+                //     }
                 // }
             }
         }

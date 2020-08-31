@@ -2,18 +2,18 @@
 #define SIMULATOR_H
 
 // Limits of the simulation space
-#define X_LIMIT 1000
-#define Y_LIMIT 1000
+#define X_LIMIT 300
+#define Y_LIMIT 300
 
 //general simulation parameters
 #define SIM_HOURS 5000
-#define STARING_NUM_ORGANISM 500
+#define STARING_NUM_ORGANISM 250
 
 #define PROBABILITY_OF_FOOD_GROWING_BACK 0.5 // set to 0 if not, 1 if always
-#define NUMBER_OF_FOOD 5000
+#define NUMBER_OF_FOOD 300
 
 #define ORGANISM_SIZE 4
-#define FOOD_SIZE 1.5
+#define FOOD_SIZE 1
 
 #define MUTATION_PROB 0.01
 
@@ -23,9 +23,6 @@ enum States
     ALIVE,
     DEAD
 };
-
-// how many hours the infection lasts
-#define INFECTION_TIME (24 * 20)
 
 //likelihood of the infection when exposed
 #define MATING_PROBABILITY 0.5

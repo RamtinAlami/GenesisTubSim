@@ -4,17 +4,21 @@
 #include "simulator.h"
 #include "location.h"
 #include "gene.h"
+#include "food.h"
 #include "brain.h"
+#include "tilable.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-class Organism
+class Organism : public Tilable
 {
 public:
     Organism();
-    Organism(Organism parten1, Organism parent2);
-    void mate(Organism other_organism);
-    bool try_mate(Organism other_person);
+    Organism(Organism *parten1, Organism *parent2);
+    void mate(Organism *other_organism);
+    bool try_mate(Organism *other_person);
+    bool try_consume(Food *food_item);
+    void consume(Food *food_item);
 
     void progress();
     bool is_alive();
