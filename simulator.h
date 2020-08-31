@@ -7,7 +7,13 @@
 
 //general simulation parameters
 #define SIM_HOURS 5000
-#define STARING_NUM_ORGANISM 20000
+#define STARING_NUM_ORGANISM 500
+
+#define PROBABILITY_OF_FOOD_GROWING_BACK 0.5 // set to 0 if not, 1 if always
+#define NUMBER_OF_FOOD 5000
+
+#define ORGANISM_SIZE 4
+#define FOOD_SIZE 1.5
 
 #define MUTATION_PROB 0.01
 

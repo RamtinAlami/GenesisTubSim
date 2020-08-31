@@ -11,7 +11,7 @@ std::vector<Organism> organisms(STARING_NUM_ORGANISM);
 
 Organism::Organism()
 {
-    shape = sf::RectangleShape(sf::Vector2f(2, 2));
+    shape = sf::RectangleShape(sf::Vector2f(ORGANISM_SIZE, ORGANISM_SIZE));
     shape.setFillColor(sf::Color(16, 74, 4));
     gene = Gene();
     state = ALIVE;
@@ -22,7 +22,7 @@ Organism::Organism()
 
 Organism::Organism(Organism parent1, Organism parent2)
 {
-    shape = sf::RectangleShape(sf::Vector2f(8, 8));
+    shape = sf::RectangleShape(sf::Vector2f(3, 3));
     shape.setFillColor(sf::Color(16, 74, 4));
     state = ALIVE;
     gene = Gene(parent1.gene, parent2.gene);

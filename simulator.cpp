@@ -10,6 +10,7 @@
 #include "organism.h"
 #include "simulator.h"
 #include "location.h"
+#include "food.h"
 
 using namespace std;
 
@@ -45,14 +46,23 @@ void sim_main()
         if (time % 2 == 0)
         {
             window.clear(sf::Color(212, 237, 255));
-        }
 
-        for (int p = 0; p < num_organism && time % 2 == 0; p++)
-        {
-            if (organisms[p].is_alive())
+            for (int p = 0; p < num_organism; p++)
             {
-                organisms[p].moveShape();
-                window.draw(organisms[p].shape);
+                if (organisms[p].is_alive())
+                {
+                    organisms[p].moveShape();
+                    window.draw(organisms[p].shape);
+                }
+            }
+
+            for (int p = 0; p < NUMBER_OF_FOOD; p++)
+            {
+                if (foods[p].is_avaliable())
+                {
+                    window.draw(foods[p].shape);
+                    std::cout << foods[p].location.getX() << " " << foods[p].location.getY() << "\n";
+                }
             }
         }
 
