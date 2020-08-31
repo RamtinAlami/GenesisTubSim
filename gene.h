@@ -1,7 +1,8 @@
 #ifndef GENE_H
 #define GENE_H
 
-#define SIZE_OF_DNA 35
+#define SIZE_OF_DNA 36
+// first 30 are brain, next 3 are color, next 2 are size, last one is speed
 
 class Gene
 {
