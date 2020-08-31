@@ -20,19 +20,19 @@ Food::Food()
 
 void Food::consume()
 {
-    if (try_event(0))
+    if (try_event(0.9999))
     {
         // location.setX(a)
+        location = Location();
         shape.setPosition(location.getX(), location.getY());
     }
     else
     {
-        printf("eater");
         isAvaliable = false;
     }
 }
 
 bool Food::is_avaliable()
 {
-    return true;
+    return isAvaliable;
 }

@@ -1,5 +1,6 @@
 #include <math.h>
 #include <bsd/stdlib.h>
+#include <iostream>
 
 #include "gene.h"
 #include "simulator.h"
@@ -9,8 +10,16 @@ Gene::Gene()
 {
     for (int i = 0; i < SIZE_OF_DNA; i++)
     {
-        int resolution = 1000000;
-        gene_data[i] = (double)(arc4random_uniform(resolution) / resolution);
+        double val = ((double)arc4random() / UINT32_MAX);
+
+        if (try_event(0.5))
+        {
+            gene_data[i] = -1.0 * val;
+        }
+        else
+        {
+            gene_data[i] = val;
+        }
     }
 }
 

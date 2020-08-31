@@ -11,7 +11,9 @@ private:
 public:
     Brain();
     Brain(Gene organism_gene);
-    double *next_move(double *observations);
+    void next_move(double *observations);
+    double memory[4];
+    double output[2];
 };
 
 #endif

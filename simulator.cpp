@@ -23,10 +23,12 @@ bool try_event(double probability)
     return rand_num <= probability;
 }
 
+int mod(int a, int b) { return (a % b + b) % b; }
+
 void sim_main()
 {
-
     sf::RenderWindow window(sf::VideoMode(X_LIMIT, Y_LIMIT), "Sim!");
+    window.setSize(sf::Vector2u(1000, 1000));
     int time = 0;
     int alive_organism;
     while (window.isOpen())
@@ -40,11 +42,11 @@ void sim_main()
                 window.close();
         }
 
-        // Set here to make sure indeces don't get messed up
+        // Set here to make sure indexes don't get messed up
         int num_organism = organisms.size();
 
-        // usleep(8000);
-        if (time % 2 == 0)
+        usleep(20000);
+        if (true)
         {
             window.clear(sf::Color(212, 237, 255));
 
@@ -66,7 +68,6 @@ void sim_main()
             }
         }
 
-#pragma omp parallel for
         for (int p = 0; p < num_organism; p++)
         {
             int p_limit = p + 1;
@@ -81,21 +82,20 @@ void sim_main()
                 {
                     organisms[p].try_mate(&organisms[p2]);
                 }
-                // for (int p3 = 0; p3 < NUMBER_OF_FOOD; p3++)
-                // {
-                //     if (foods[p3].is_avaliable())
-                //     {
-                //         organisms[p].try_consume(&foods[p3]);
-                //     }
-                // }
+
+                for (int p3 = 0; p3 < NUMBER_OF_FOOD; p3++)
+                {
+                    if (foods[p3].is_avaliable())
+                    {
+                        organisms[p].try_consume(&foods[p3]);
+                    }
+                }
             }
         }
-
         window.display();
         std::cout << "Num of organism " << alive_organism << "\n";
     }
 }
-
 int main()
 {
     sim_main();

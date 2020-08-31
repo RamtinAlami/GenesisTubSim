@@ -54,14 +54,14 @@ bool Location::move_toward(double dest_x, double dest_y, double amount)
 
     if (distance < amount) // checks so we don't overshoot
     {
-        x = dest_x;
-        y = dest_y;
+        setX(dest_x);
+        setY(dest_y);
         return true;
     }
     else
     {
-        x = x + (amount * cos(theta));
-        y = y + (amount * sin(theta));
+        setX(x + (amount * cos(theta)));
+        setY(y + (amount * sin(theta)));
         return false;
     }
 }
@@ -91,5 +91,11 @@ bool Location::at_location(Location destination)
 // getters and setter functions
 double Location::getX() { return x; }
 double Location::getY() { return y; }
-void Location::setX(double nx) { x = nx; }
-void Location::setY(double ny) { y = ny; }
+void Location::setX(double nx)
+{
+    x = mod(nx, X_LIMIT);
+}
+void Location::setY(double ny)
+{
+    y = mod(ny, Y_LIMIT);
+}

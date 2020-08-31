@@ -1,7 +1,7 @@
 #ifndef GENE_H
 #define GENE_H
 
-#define SIZE_OF_DNA 23
+#define SIZE_OF_DNA 35
 
 class Gene
 {

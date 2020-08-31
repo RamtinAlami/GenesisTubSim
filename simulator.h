@@ -7,10 +7,12 @@
 
 //general simulation parameters
 #define SIM_HOURS 5000
-#define STARING_NUM_ORGANISM 250
+#define STARING_NUM_ORGANISM 400
 
-#define PROBABILITY_OF_FOOD_GROWING_BACK 0.5 // set to 0 if not, 1 if always
-#define NUMBER_OF_FOOD 300
+#define PROBABILITY_OF_FOOD_GROWING_BACK 0.6 // set to 0 if not, 1 if always
+#define NUMBER_OF_FOOD 1500
+
+#define PROBABILITY_OF_STARVATION 0.01
 
 #define ORGANISM_SIZE 4
 #define FOOD_SIZE 1
@@ -25,7 +27,7 @@ enum States
 };
 
 //likelihood of the infection when exposed
-#define MATING_PROBABILITY 0.5
+#define MATING_PROBABILITY 1
 
 //disease dynamics
 #define NORMAL_FATALITY_RATE 0.01    // when normal
@@ -41,5 +43,6 @@ enum States
 // dive roller
 // returns true or false based on probability
 bool try_event(double probability);
+int mod(int a, int b);
 
 #endif
