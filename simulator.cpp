@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 #include <unistd.h>
+#include <algorithm>
 
 #include "organism.h"
 #include "simulator.h"
@@ -45,7 +46,7 @@ void sim_main()
         // Set here to make sure indexes don't get messed up
         int num_organism = organisms.size();
 
-        usleep(20000);
+        // usleep(20000);
         if (true)
         {
             window.clear(sf::Color(212, 237, 255));

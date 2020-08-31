@@ -11,7 +11,9 @@ std::vector<Organism> organisms(STARING_NUM_ORGANISM);
 
 Organism::Organism()
 {
+    fertile = false;
     gene = Gene();
+    observations[3] = {0.0};
     speed = (gene.gene_data[35] + 1) * 5;
     shape = sf::RectangleShape(sf::Vector2f(ORGANISM_SIZE + (gene.gene_data[33] * 1.5), ORGANISM_SIZE + (gene.gene_data[33] * 1.5)));
     shape.setFillColor(sf::Color((gene.gene_data[30] + 1) * 100, (gene.gene_data[31] + 1) * 100, (gene.gene_data[32] + 1) * 100));
@@ -25,7 +27,9 @@ Organism::Organism()
 
 Organism::Organism(Organism *parent1, Organism *parent2)
 {
+    fertile = false;
     gene = Gene(parent1->gene, parent2->gene);
+    observations[3] = {0.0};
     speed = (gene.gene_data[35] + 1) * 5;
     shape = sf::RectangleShape(sf::Vector2f(ORGANISM_SIZE + (gene.gene_data[33] * 1.5), ORGANISM_SIZE + (gene.gene_data[33] * 1.5)));
     shape.setFillColor(sf::Color((gene.gene_data[30] + 1) * 100, (gene.gene_data[31] + 1) * 100, (gene.gene_data[32] + 1) * 100));
@@ -53,6 +57,8 @@ void Organism::consume(Food *food_item)
 
 bool Organism::try_consume(Food *food_item)
 {
+    double distance = location.get_distance(food_item->location);
+    observations[1] = std::min(observations[1], distance);
     if (location.get_distance(food_item->location) > 2)
     {
         return false;
@@ -67,11 +73,13 @@ bool Organism::try_consume(Food *food_item)
 
 bool Organism::try_mate(Organism *other_organism)
 {
-    if (other_organism->food_level <= 120)
+    if (!(other_organism->fertile))
     {
         return false;
     }
-    if (location.get_distance(other_organism->location) > MATING_PROXIMITY)
+    double distance = location.get_distance(other_organism->location);
+    observations[0] = std::min(distance, observations[0]);
+    if (distance > MATING_PROXIMITY)
     {
         return false;
     }
@@ -87,6 +95,10 @@ bool Organism::try_mate(Organism *other_organism)
 void Organism::progress()
 {
     food_level = food_level - speed;
+    if (food_level >= 140)
+    {
+        fertile = true;
+    }
     if (food_level < 30 && try_event(PROBABILITY_OF_STARVATION))
     {
         state = DEAD;
@@ -96,7 +108,7 @@ void Organism::progress()
 void Organism::move()
 {
     // TODO change this to actual observations
-    double observations[3] = {0.2, 1.1, 1};
+    // double observations[3] = {0.2, 1.1, 1};
     controller_brian.next_move(observations);
     double *commands = controller_brian.output;
 

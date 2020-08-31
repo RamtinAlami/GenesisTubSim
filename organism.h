@@ -20,7 +20,9 @@ public:
     bool try_consume(Food *food_item);
     void consume(Food *food_item);
 
+    bool fertile;
     double speed;
+    double observations[3];
     void progress();
     bool is_alive();
     void move();
