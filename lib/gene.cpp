@@ -2,8 +2,8 @@
 #include <bsd/stdlib.h>
 #include <iostream>
 
-#include "gene.h"
-#include "simulator.h"
+#include "../include/gene.h"
+#include "../include/simulator.h"
 
 Gene::Gene()
 // Init gene with random values

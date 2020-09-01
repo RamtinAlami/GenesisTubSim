@@ -1,8 +1,9 @@
-#include "food.h"
-#include "simulator.h"
 #include <math.h>
 #include <bsd/stdlib.h>
 #include <stdio.h>
+
+#include "../include/food.h"
+#include "../include/simulator.h"
 
 // Food foods[NUMBER_OF_FOOD] = {Food()};
 std::vector<Food> foods(NUMBER_OF_FOOD);

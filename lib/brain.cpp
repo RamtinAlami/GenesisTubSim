@@ -4,9 +4,9 @@
 #include <algorithm>
 #include <iostream>
 
-#include "gene.h"
-#include "brain.h"
-#include "simulator.h"
+#include "../include/gene.h"
+#include "../include/brain.h"
+#include "../include/simulator.h"
 
 Brain::Brain()
 {

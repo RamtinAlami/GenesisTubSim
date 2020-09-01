@@ -1,11 +1,12 @@
-#include "organism.h"
-#include "gene.h"
-#include "brain.h"
-#include "simulator.h"
 #include <iostream>
 #include <vector>
 #include <math.h>
 #include <bsd/stdlib.h>
+
+#include "../include/organism.h"
+#include "../include/gene.h"
+#include "../include/brain.h"
+#include "../include/simulator.h"
 
 std::vector<Organism> organisms(STARING_NUM_ORGANISM);
 

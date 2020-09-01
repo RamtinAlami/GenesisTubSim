@@ -8,10 +8,10 @@
 #include <unistd.h>
 #include <algorithm>
 
-#include "organism.h"
-#include "simulator.h"
-#include "location.h"
-#include "food.h"
+#include "../include/organism.h"
+#include "../include/simulator.h"
+#include "../include/location.h"
+#include "../include/food.h"
 
 using namespace std;
 
