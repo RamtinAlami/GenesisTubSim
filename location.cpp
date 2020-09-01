@@ -11,6 +11,7 @@ Location::Location()
 {
     x = arc4random_uniform(X_LIMIT);
     y = arc4random_uniform(Y_LIMIT);
+    next_to_end = false;
 }
 
 Location::Location(double input_x, double input_y)
@@ -66,6 +67,12 @@ bool Location::move_toward(double dest_x, double dest_y, double amount)
     }
 }
 
+void Location::move_directions(int rl, int ud, int speed)
+{
+    setX(x + rl * speed);
+    setY(y + ud * speed);
+}
+
 double Location::get_distance(Location other_location)
 {
     // Return distance between two points
@@ -93,9 +100,41 @@ double Location::getX() { return x; }
 double Location::getY() { return y; }
 void Location::setX(double nx)
 {
-    x = mod(nx, X_LIMIT);
+    // x = mod(nx, X_LIMIT);
+    // next_to_end = true;
+    if (nx < 0)
+    {
+        // x = 1;
+        x = mod(nx, X_LIMIT);
+    }
+    else if (nx >= X_LIMIT)
+    {
+        // x = X_LIMIT - 1;
+        x = mod(nx, X_LIMIT);
+    }
+    else
+    {
+        next_to_end = false;
+        x = nx;
+    }
 }
 void Location::setY(double ny)
 {
-    y = mod(ny, Y_LIMIT);
+    // y = mod(ny, Y_LIMIT);
+    // next_to_end = true;
+    if (ny < 0)
+    {
+        // y = 1;
+        y = mod(ny, Y_LIMIT);
+    }
+    else if (ny >= Y_LIMIT)
+    {
+        // y = Y_LIMIT - 1;
+        y = mod(ny, Y_LIMIT);
+    }
+    else
+    {
+        next_to_end = false;
+        y = ny;
+    }
 }

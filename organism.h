@@ -19,6 +19,9 @@ public:
     bool try_mate(Organism *other_person);
     bool try_consume(Food *food_item);
     void consume(Food *food_item);
+    int size;
+
+    int been_stationary;
 
     bool fertile;
     double speed;
@@ -33,8 +36,7 @@ public:
     Brain controller_brian;
     Location location;
     sf::RectangleShape shape;
-
-    States state;
+    bool is_living;
 };
 
 extern std::vector<Organism> organisms;

@@ -30,7 +30,7 @@ void Brain::next_move(double *observations)
 
     for (int n = 0; n < 4; n++)
     {
-        for (int x = 0; x < 2; x++)
+        for (int x = 0; x < 3; x++)
         {
             first_layer[n] = first_layer[n] + gene.gene_data[weight_counter] * observations[x];
             weight_counter++;
@@ -41,7 +41,6 @@ void Brain::next_move(double *observations)
         memory[n] = first_layer[n]; // saves the memory
         weight_counter = weight_counter + 2;
     }
-    // std::cout << memory[0] << " " << memory[0] << " " << memory[0] << " " << '\n';
 
     for (int n = 0; n < 2; n++)
     {

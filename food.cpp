@@ -20,7 +20,7 @@ Food::Food()
 
 void Food::consume()
 {
-    if (try_event(0.9999))
+    if (try_event(PROBABILITY_OF_FOOD_GROWING_BACK))
     {
         // location.setX(a)
         location = Location();

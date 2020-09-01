@@ -22,6 +22,16 @@ public:
     int get_tile_index();
     int tile_index;
     Tile_type type;
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    Location getLocation();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    Location getLocation();
 };
 
 #endif
