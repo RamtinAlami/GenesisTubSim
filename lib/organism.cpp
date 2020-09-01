@@ -12,33 +12,27 @@ std::vector<Organism> organisms(STARING_NUM_ORGANISM);
 
 Organism::Organism()
 {
-    fertile = false;
     gene = Gene();
+    init();
+}
+
+Organism::Organism(Organism *parent1, Organism *parent2)
+{
+    gene = Gene(parent1->gene, parent2->gene);
+    gene.mutate(); // Mutate the gene after creation
+    init();
+}
+
+void Organism::init()
+{
+    fertile = false;
     been_stationary = 0;
-    observations[3] = {0.0};
     speed = (gene.gene_data[35] + 1) * 5;
     shape = sf::RectangleShape(sf::Vector2f(ORGANISM_SIZE + (gene.gene_data[33] * 1.5), ORGANISM_SIZE + (gene.gene_data[33] * 1.5)));
     shape.setFillColor(sf::Color((gene.gene_data[30] + 1) * 100, (gene.gene_data[31] + 1) * 100, (gene.gene_data[32] + 1) * 100));
     is_living = true;
     food_level = 100;
     location = Location();
-    controller_brian = Brain(gene);
-    type = ORGANISM;
-}
-
-Organism::Organism(Organism *parent1, Organism *parent2)
-{
-    fertile = false;
-    been_stationary = 0;
-    gene = Gene(parent1->gene, parent2->gene);
-    observations[3] = {0.0};
-    speed = (gene.gene_data[35] + 1) * 5;
-    shape = sf::RectangleShape(sf::Vector2f(ORGANISM_SIZE + (gene.gene_data[33] * 1.5), ORGANISM_SIZE + (gene.gene_data[33] * 1.5)));
-    shape.setFillColor(sf::Color((gene.gene_data[30] + 1) * 100, (gene.gene_data[31] + 1) * 100, (gene.gene_data[32] + 1) * 100));
-    is_living = true;
-    gene.mutate(); // Mutate the gene after creation
-    food_level = 100;
-    location = Location(parent1->location.getX(), parent1->location.getY()); // Location next to parent
     controller_brian = Brain(gene);
     type = ORGANISM;
 }

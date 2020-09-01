@@ -29,6 +29,11 @@ public:
     /// @brief Method returns a random boolean value with input probability
     /// @param probability the probability of returning true
     /// @return a boolean based on input probability
+    void init();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
     void mate(Organism *other_organism);
 
     /// @brief Method returns a random boolean value with input probability
