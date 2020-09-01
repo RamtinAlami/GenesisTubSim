@@ -14,24 +14,39 @@ enum Tile_type
 
 class Tilable
 {
-    // Abstract class that Organism and items that can places on times inherit from
+protected:
+    Location location;
+    sf::RectangleShape shape;
+
 public:
     Tilable();
-    void change_tile_index(int new_tile_index);
-    void set_tile(int x, int y);
-    int get_tile_index();
     int tile_index;
     Tile_type type;
 
     /// @brief Method returns a random boolean value with input probability
     /// @param probability the probability of returning true
     /// @return a boolean based on input probability
-    Location getLocation();
+    void change_tile_index(int new_tile_index);
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    int get_tile_index();
 
     /// @brief Method returns a random boolean value with input probability
     /// @param probability the probability of returning true
     /// @return a boolean based on input probability
     Location getLocation();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    sf::RectangleShape getShape();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    void moveShape();
 };
 
 #endif

@@ -23,7 +23,6 @@ Organism::Organism()
     location = Location();
     controller_brian = Brain(gene);
     type = ORGANISM;
-    set_tile(location.getX(), location.getY());
 }
 
 Organism::Organism(Organism *parent1, Organism *parent2)
@@ -41,7 +40,6 @@ Organism::Organism(Organism *parent1, Organism *parent2)
     location = Location(parent1->location.getX(), parent1->location.getY()); // Location next to parent
     controller_brian = Brain(gene);
     type = ORGANISM;
-    set_tile(location.getX(), location.getY());
 }
 
 void Organism::mate(Organism *other_organism)
@@ -50,30 +48,30 @@ void Organism::mate(Organism *other_organism)
     organisms.push_back(Organism(this, other_organism));
 }
 
-void Organism::consume(Food *food_item)
+void Organism::consumeFood(Food *food_item)
 {
     // TODO CHECK THIS !!! THIS ACTS WEIRD
     food_item->consume();
     food_level = food_level + 10;
 }
 
-bool Organism::try_consume(Food *food_item)
+bool Organism::tryConsume(Food *food_item)
 {
-    double distance = location.get_distance(food_item->location);
+    double distance = location.get_distance(food_item->getLocation());
     observations[1] = std::min(observations[1], distance);
-    if (location.get_distance(food_item->location) > 2)
+    if (location.get_distance(food_item->getLocation()) > 2)
     {
         return false;
     }
     if (try_event(0.9))
     {
-        consume(food_item);
+        consumeFood(food_item);
         return true;
     }
     return false;
 }
 
-bool Organism::try_mate(Organism *other_organism)
+bool Organism::tryMate(Organism *other_organism)
 {
     if (!(other_organism->fertile))
     {
@@ -128,41 +126,9 @@ void Organism::move()
     {
         been_stationary = 0;
     }
-
-    // int aim_x = location.getX();
-    // int aim_y = location.getY();
-
-    // aim_x = aim_x + (commands[0] * 2);
-    // aim_y = aim_y + (commands[1] * 2);
-
-    // if (try_event(0.5))
-    // {
-    //     aim_x = aim_x + arc4random_uniform(4);
-    // }
-    // else
-    // {
-    //     aim_x = aim_x - arc4random_uniform(4);
-    // }
-
-    // if (try_event(0.5))
-    // {
-    //     aim_y = aim_y + arc4random_uniform(4);
-    // }
-    // else
-    // {
-    //     aim_y = aim_y - arc4random_uniform(4);
-    // }
-
-    // location.move_toward(aim_x, aim_y, 5);
-    // set_tile(location.getX(), location.getY());
 }
 
 bool Organism::is_alive()
 {
     return is_living;
-}
-
-void Organism::moveShape()
-{
-    shape.setPosition(location.getX(), location.getY());
 }

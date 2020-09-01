@@ -10,9 +10,7 @@
 class Food : public Tilable
 {
 protected:
-    bool isAvaliable;
-    Location location;
-    sf::RectangleShape shape;
+    bool isConsumed;
 
 public:
     Food();
@@ -26,11 +24,6 @@ public:
     /// @param probability the probability of returning true
     /// @return a boolean based on input probability
     bool isAvaliable();
-
-    /// @brief Method returns a random boolean value with input probability
-    /// @param probability the probability of returning true
-    /// @return a boolean based on input probability
-    Location getLocation();
 };
 
 extern std::vector<Food> foods;

@@ -12,31 +12,61 @@
 
 class Organism : public Tilable
 {
-public:
-    Organism();
-    Organism(Organism *parten1, Organism *parent2);
-    void mate(Organism *other_organism);
-    bool try_mate(Organism *other_person);
-    bool try_consume(Food *food_item);
-    void consume(Food *food_item);
+protected:
     int size;
-
     int been_stationary;
-
     bool fertile;
     double speed;
-    double observations[3];
-    void progress();
-    bool is_alive();
-    void move();
-    void moveShape();
-
     Gene gene;
     int food_level;
     Brain controller_brian;
-    Location location;
-    sf::RectangleShape shape;
     bool is_living;
+
+public:
+    Organism();
+    Organism(Organism *parten1, Organism *parent2);
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    void mate(Organism *other_organism);
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    bool tryMate(Organism *other_person);
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    bool tryConsume(Food *food_item);
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @param probability the probability of returning true
+    /// @return a boolean based on input probability
+    void consumeFood(Food *food_item);
+
+    // @brief Method returns a random boolean value with input probability
+    /// @return a boolean based on input probability
+    void progress();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @return a boolean based on input probability
+    void move();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @return a boolean based on input probability
+    bool isFertile();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @return a boolean based on input probability
+    int getSpeed();
+
+    /// @brief Method returns a random boolean value with input probability
+    /// @return a boolean based on input probability
+    bool is_alive();
+
+    double observations[3];
 };
 
 extern std::vector<Organism> organisms;

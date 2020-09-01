@@ -12,9 +12,8 @@ Food::Food()
     shape = sf::RectangleShape(sf::Vector2f(FOOD_SIZE, FOOD_SIZE));
     shape.setFillColor(sf::Color(55, 55, 55));
     location = Location();
-    set_tile(location.getX(), location.getY());
     shape.setPosition(location.getX(), location.getY());
-    isAvaliable = true;
+    isConsumed = true;
     type = FOOD;
 }
 
@@ -28,11 +27,11 @@ void Food::consume()
     }
     else
     {
-        isAvaliable = false;
+        isConsumed = false;
     }
 }
 
-bool Food::is_avaliable()
+bool Food::isAvaliable()
 {
-    return isAvaliable;
-}
+    return isConsumed;
+};

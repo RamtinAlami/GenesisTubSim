@@ -1,5 +1,4 @@
 #include "tilable.h"
-#include "map.h"
 
 Tilable::Tilable()
 {
@@ -15,7 +14,17 @@ int Tilable::get_tile_index()
     return tile_index;
 }
 
-void Tilable::set_tile(int x, int y)
+Location Tilable::getLocation()
 {
-    grid_map[x][y].add_tilable(this);
+    return location;
+}
+
+sf::RectangleShape Tilable::getShape()
+{
+    return shape;
+}
+
+void Tilable::moveShape()
+{
+    shape.setPosition(location.getX(), location.getY());
 }

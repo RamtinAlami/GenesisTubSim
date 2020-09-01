@@ -6,7 +6,7 @@
 #define Y_LIMIT 200
 
 //general simulation parameters
-#define STARING_NUM_ORGANISM 5000
+#define STARING_NUM_ORGANISM 200
 #define NUMBER_OF_FOOD 1000
 #define ORGANISM_SIZE 2
 #define FOOD_SIZE 1
@@ -22,7 +22,7 @@
 
 // Some general global functions to be used
 
-/// @brief Method returns a random boolean value with input probability
+/// @brief Random boolean generator based on input probability
 /// @param probability the probability of returning true
 /// @return a boolean based on input probability
 bool try_event(double probability);
@@ -32,5 +32,7 @@ bool try_event(double probability);
 /// @param b the base which modulo is calculated
 /// @return The modulo of first value based on second a % b
 int mod(int a, int b);
+
+void moveShape();
 
 #endif

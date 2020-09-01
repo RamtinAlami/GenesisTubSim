@@ -56,15 +56,15 @@ void sim_main()
                 if (organisms[p].is_alive())
                 {
                     organisms[p].moveShape();
-                    window.draw(organisms[p].shape);
+                    window.draw(organisms[p].getShape());
                 }
             }
 
             for (int p = 0; p < NUMBER_OF_FOOD; p++)
             {
-                if (foods[p].is_avaliable())
+                if (foods[p].isAvaliable())
                 {
-                    window.draw(foods[p].shape);
+                    window.draw(foods[p].getShape());
                 }
             }
         }
@@ -81,14 +81,14 @@ void sim_main()
 
                 for (int p2 = p_limit; p2 < num_organism; p2++)
                 {
-                    organisms[p].try_mate(&organisms[p2]);
+                    organisms[p].tryMate(&organisms[p2]);
                 }
 
                 for (int p3 = 0; p3 < NUMBER_OF_FOOD; p3++)
                 {
-                    if (foods[p3].is_avaliable())
+                    if (foods[p3].isAvaliable())
                     {
-                        organisms[p].try_consume(&foods[p3]);
+                        organisms[p].tryConsume(&foods[p3]);
                     }
                 }
             }
