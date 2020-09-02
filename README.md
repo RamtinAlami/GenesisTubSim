@@ -2,7 +2,7 @@
 
 ###A C++ program that simulates simple evolving organisms is a randomly generated world.
 
-![](/images/top.gif)
+![](https://github.com/RamtinAlami/GenesisTubSim/blob/master/img/top.gif)
 
 The organism's brains consists of tiny neural networks that evolve overtime for survival. The organism reproduce
 
