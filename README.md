@@ -1,6 +1,6 @@
 # GenesisTubSim
 
-###A C++ program that simulates simple evolving organisms is a randomly generated world.
+### A C++ program that simulates simple evolving organisms is a randomly generated world.
 
 ![](https://github.com/RamtinAlami/GenesisTubSim/blob/master/img/top.gif)
 
