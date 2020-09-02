@@ -21,6 +21,8 @@ protected:
     int food_level;
     Brain controller_brian;
     bool is_living;
+    int age;
+    bool is_young;
 
 public:
     Organism();

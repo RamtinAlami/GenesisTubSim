@@ -1,5 +1,5 @@
 CPP = clang++
-CPPFLAGS =-g -Wall
+CPPFLAGS =
 LDFLAGS = -lbsd -lm -lsfml-graphics -lsfml-window -lsfml-system
 
 SRC=lib

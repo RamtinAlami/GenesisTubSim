@@ -2,23 +2,23 @@
 #define SIMULATOR_H
 
 // Limits of the simulation space
-#define X_LIMIT 200
-#define Y_LIMIT 200
+#define X_LIMIT 180
+#define Y_LIMIT 180
 
 //general simulation parameters
-#define STARING_NUM_ORGANISM 200
-#define NUMBER_OF_FOOD 1000
+#define STARING_NUM_ORGANISM 1000
+#define NUMBER_OF_FOOD 2500
 #define ORGANISM_SIZE 2
-#define FOOD_SIZE 1
+#define FOOD_SIZE 0.5
 
 // Randomness
-#define PROBABILITY_OF_FOOD_GROWING_BACK 0.9 // set to 0 if not, 1 if always
-#define PROBABILITY_OF_STARVATION 0.02
-#define MUTATION_PROB 0.01
-#define MATING_PROBABILITY 1
+#define PROBABILITY_OF_FOOD_GROWING_BACK 0.999 // set to 0 if not, 1 if always
+#define PROBABILITY_OF_STARVATION 0.5
+#define MUTATION_PROB 0.05
+#define MATING_PROBABILITY 1.0
 
 // Other constants
-#define MATING_PROXIMITY 5.0
+#define MATING_PROXIMITY 3.0
 
 // Some general global functions to be used
 

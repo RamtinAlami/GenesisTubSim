@@ -46,7 +46,7 @@ void sim_main()
         // Set here to make sure indexes don't get messed up
         int num_organism = organisms.size();
 
-        // usleep(20000);
+        usleep(90000);
         if (true)
         {
             window.clear(sf::Color(212, 237, 255));

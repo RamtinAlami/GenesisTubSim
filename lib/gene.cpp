@@ -40,13 +40,13 @@ Gene::Gene(Gene parent1_gene, Gene parent2_gene)
 }
 
 void Gene::mutate()
+// mutates a given gene
 {
     for (int i = 0; i < SIZE_OF_DNA; i++)
     {
         if (try_event(MUTATION_PROB))
         {
-            int resolution = 1000000;
-            gene_data[i] = (double)(arc4random_uniform(resolution) / resolution);
+            gene_data[i] = (double)(arc4random_uniform(RAND_MAX)) / (double)RAND_MAX;
         }
     }
 }
