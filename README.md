@@ -8,8 +8,8 @@ The organism's brains consist of tiny neural networks that evolve overtime for s
 
 ### USAGE
 
-To compile the program, you can run the make file. Note that the SFML library is required to run GUI. In addition, having openmp will also improve the performance.
+To compile the program, you can run the make file. Note that the SFML library is required to run the GUI. In addition, having openmp will also improve the performance.
 
 ### CUSTOMIZE
 
-To play around with your own simulation parameters, edit <code class="language-plaintext highlighter-rouge">include/simulator.h</code>.
+To play around with your own simulation parameters, edit the macros in <code class="language-plaintext highlighter-rouge">include/simulator.h</code>.
